@@ -1,4 +1,4 @@
-import { IUser } from "../utils/types/user";
+import { IUser } from "../utils/types/User";
 
 class User {
   private users: IUser[] = [];
@@ -7,8 +7,7 @@ class User {
   constructor() {
     // Initialize with some dummy data
     this.users = [
-      { id: 1, username: 'user1', password: 'password1' },
-      { id: 2, username: 'user2', password: 'password2' },
+      { id: 1, username: 'admin', password: '123qwe' },
     ];
   }
 
@@ -48,8 +47,8 @@ class User {
     });
   }
 
-  getCurrentUser(): IUser | null {
-    return this.currentUser;
+  getCurrentUser(): string | undefined | null {
+    return this.currentUser?.username;
   }
 }
 
