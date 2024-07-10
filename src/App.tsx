@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import React from "react";
+import "./App.css";
+// import Header from "./components/layout/header/Header";
+import { ConfigProvider } from "antd";
+import AppRoutes from "./components/routes";
+const App: React.FC = () => {
+	const [primary, setPrimary] = React.useState("#1677ff");
+	return (
+		<ConfigProvider
+			theme={{
+				token: {
+					colorPrimary: primary,
+					colorBgBase: "#fff",
+				},
+				// algorithm: ()
+			}}
+		>
+			<AppRoutes />
+		</ConfigProvider>
+	);
+};
 
 export default App;
