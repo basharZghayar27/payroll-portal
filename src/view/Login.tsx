@@ -8,8 +8,8 @@ import { Link } from "react-router-dom";
 const LoginPage = () => {
 	const { login } = useAuth();
   
-	const onFinish: FormProps<TLogin>["onFinish"] = (values) => {
-		login(values);
+	const onFinish: FormProps<TLogin>["onFinish"] = async (values) => {
+		await login(values);
 	};
 
 	return (
