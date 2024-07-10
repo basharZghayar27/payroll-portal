@@ -1,7 +1,7 @@
 // AuthContext.js
 import React, { createContext, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { TLogin } from "../types/Auth";
+import { TLogin } from "../utils/types/Auth";
 
 const AuthContext = createContext({ isAuthenticated: false, login: (v: TLogin) => {}, logout: () => {} });
 

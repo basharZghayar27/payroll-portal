@@ -5,7 +5,7 @@ import type { FormProps } from 'antd';
 import { TLogin } from "../utils/types/Auth";
 import { Link } from "react-router-dom";
 
-const LoginPage = () => {
+const SignUp = () => {
 	const { login } = useAuth();
   
 	const onFinish: FormProps<TLogin>["onFinish"] = (values) => {
@@ -61,13 +61,13 @@ const LoginPage = () => {
 				</Form.Item>
 			</Form>
       <Typography>
-        {"You don't have an account yet? "}
-        <Link to={'/public/sign-up'}>
-        {"Sign up here."}
+        {"Already have an account? "}
+        <Link to={'/public/login'}>
+        {"Login here."}
         </Link>
       </Typography>
 		</Card>
 	);
 };
 
-export default LoginPage;
+export default SignUp;

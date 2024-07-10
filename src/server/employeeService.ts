@@ -1,56 +1,78 @@
-import { IEmployee } from "../types/Employee";
+import { IEmployee } from "../utils/types/Employee";
+import { employees } from "../utils/constants";
 
 export class Employee {
   private employees: IEmployee[] = [];
   private nextId: number = 1;
 
   constructor() {
-    this.employees = [
-      {
-        id: this.nextId++,
-        name: 'John Doe',
-        joiningDate: new Date('2024-07-07'),
-        basicSalary: 3000,
-        salaryAllowances: 300,
-      },
-    ];
+    this.employees = employees;
+    this.nextId = this.employees.length + 1;
   }
 
-  createEmployee(employeeData: Omit<IEmployee, 'id'>): IEmployee {
-    const newEmployee: IEmployee = {
-      id: this.nextId++,
-      ...employeeData,
-    };
-    this.employees.push(newEmployee);
-    return newEmployee;
+  async createEmployee(
+    employeeData: Omit<IEmployee, "id">
+  ): Promise<IEmployee> {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const newEmployee: IEmployee = {
+          id: this.nextId++,
+          ...employeeData,
+        };
+        this.employees.push(newEmployee);
+        resolve(newEmployee);
+      }, 500);
+    });
   }
 
-  updateEmployee(id: number, updatedData: Partial<IEmployee>): IEmployee | undefined {
-    const employeeIndex = this.employees.findIndex(emp => emp.id === id);
-    if (employeeIndex !== -1) {
-      this.employees[employeeIndex] = {
-        ...this.employees[employeeIndex],
-        ...updatedData,
-      };
-      return this.employees[employeeIndex];
-    }
-    return undefined;
+  async updateEmployee(
+    id: number,
+    updatedData: Partial<IEmployee>
+  ): Promise<IEmployee | undefined> {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const employeeIndex = this.employees.findIndex((emp) => emp.id === id);
+        if (employeeIndex !== -1) {
+          this.employees[employeeIndex] = {
+            ...this.employees[employeeIndex],
+            ...updatedData,
+          };
+          resolve(this.employees[employeeIndex]);
+        } else {
+          resolve(undefined);
+        }
+      }, 500);
+    });
   }
 
-  deleteEmployee(id: number): boolean {
-    const employeeIndex = this.employees.findIndex(emp => emp.id === id);
-    if (employeeIndex !== -1) {
-      this.employees.splice(employeeIndex, 1);
-      return true;
-    }
-    return false;
+  async deleteEmployee(id: number): Promise<boolean> {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const employeeIndex = this.employees.findIndex((emp) => emp.id === id);
+        if (employeeIndex !== -1) {
+          this.employees.splice(employeeIndex, 1);
+          resolve(true);
+        } else {
+          resolve(false);
+        }
+      }, 500);
+    });
   }
 
-  getEmployees(): IEmployee[] {
-    return this.employees;
+  async getEmployees(): Promise<IEmployee[]> {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(this.employees);
+      }, 500);
+    });
   }
 
-  getEmployeeById(id: number): IEmployee | undefined {
-    return this.employees.find(emp => emp.id === id);
+  async getEmployeeById(id: number): Promise<IEmployee | undefined> {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const employee = this.employees.find((emp) => emp.id === id);
+        resolve(employee);
+      }, 500);
+    });
   }
 }
