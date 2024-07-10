@@ -1,6 +1,7 @@
 import React from "react";
-import { Button, Col, Layout, Row, theme } from "antd";
-import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
+import { Button, Col, Flex, Layout, Row, theme, Tooltip } from "antd";
+import { MenuFoldOutlined, MenuUnfoldOutlined, LogoutOutlined } from "@ant-design/icons";
+import { useAuth } from "../../../../context/AuthContext";
 const { Header } = Layout;
 
 export type TAppHeader = {
@@ -8,13 +9,14 @@ export type TAppHeader = {
 	setCollapsed: React.Dispatch<React.SetStateAction<boolean>>;
 };
 const AppHeader = ({ collapsed, setCollapsed }: TAppHeader) => {
+	const { logout } = useAuth();
 	const {
 		token: { colorBgContainer },
 	} = theme.useToken();
 	return (
 		<React.Fragment>
 			<Layout style={{ maxHeight: "64px" }}>
-				<Header style={{ padding: "16px 0px", background: colorBgContainer }}>
+				<Header style={{ padding: "0px 16px 0 0", background: colorBgContainer }}>
 					<Row align={"middle"} justify={"space-between"}>
 						<Col sm={1}>
 							<Button
@@ -28,7 +30,13 @@ const AppHeader = ({ collapsed, setCollapsed }: TAppHeader) => {
 								}}
 							/>
 						</Col>
-						<Col sm={23}>Header</Col>
+						<Col sm={23}>
+							<Flex justify='flex-end'>
+								<Tooltip placement='left' title={<span>Logout the system</span>}>
+									<LogoutOutlined onClick={() => logout()} />
+								</Tooltip>
+							</Flex>
+						</Col>
 					</Row>
 				</Header>
 			</Layout>

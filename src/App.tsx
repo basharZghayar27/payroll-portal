@@ -12,7 +12,6 @@ const App: React.FC = () => {
 					colorPrimary: primary,
 					colorBgBase: "#fff",
 				},
-				// algorithm: ()
 			}}
 		>
 			<AppRoutes />

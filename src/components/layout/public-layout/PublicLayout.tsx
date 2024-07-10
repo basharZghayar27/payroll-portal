@@ -9,7 +9,7 @@ const boxStyle: React.CSSProperties = {
 };
 export const PublicLayout = () => {
 	return (
-		<Layout style={{ minHeight: "100vh", backgroundColor: "#fff" }}>
+		<Layout style={{ minHeight: "100vh", backgroundColor: "#e4e2dd" }}>
 			<Flex style={boxStyle} justify={'center'} align={'center'}>
 				<Outlet />
 			</Flex>

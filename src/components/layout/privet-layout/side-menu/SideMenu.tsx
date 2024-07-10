@@ -11,7 +11,9 @@ export const SideMenu = ({collapsed}: TSideMenu) => {
   const location = useLocation(); 
   return (
     <Sider trigger={null} collapsible collapsed={collapsed}>
-      <div>Logo</div>
+      <div>
+      <img src={`/pay.svg`} alt="Logo" />
+    </div>
       <Menu theme="dark" mode="vertical" defaultSelectedKeys={[location.pathname.slice(1)]} activeKey={location.pathname.slice(1)} items={menuItems}/>
     </Sider> 
   )
