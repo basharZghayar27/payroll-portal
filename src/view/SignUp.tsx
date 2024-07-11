@@ -4,6 +4,7 @@ import { Button, Card, Col, Flex, Form, Input, Row, Typography } from "antd";
 import type { FormProps } from "antd";
 import { TSignUp } from "../utils/types/Auth";
 import { Link } from "react-router-dom";
+import { routesConstant } from "../utils/constants";
 
 const SignUp = () => {
   const { signUp } = useAuth();
@@ -88,7 +89,7 @@ const SignUp = () => {
       </Form>
       <Typography>
         {"Already have an account? "}
-        <Link to={"/public/login"}>{"Login here."}</Link>
+        <Link to={routesConstant.login}>{"Login here."}</Link>
       </Typography>
     </Card>
   );

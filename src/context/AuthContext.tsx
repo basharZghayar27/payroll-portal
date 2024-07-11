@@ -2,7 +2,6 @@
 import React, { createContext, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContextType, TLogin, TSignUp } from "../utils/types/Auth";
-import { IUser } from "../utils/types/User";
 import User from "../server/userService";
 import { routesConstant } from "../utils/constants";
 import { message } from "antd";

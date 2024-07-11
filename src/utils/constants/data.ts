@@ -1,7 +1,7 @@
 import { IEmployee } from "../types/Employee";
 
 
-const employees: IEmployee[] = [
+let employees: IEmployee[] = [
   {
     id: 1,
     name: 'Alice Johnson',

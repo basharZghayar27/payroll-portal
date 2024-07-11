@@ -1,9 +1,10 @@
 import React from "react";
 import { useAuth } from "../context/AuthContext";
-import { Button, Card, Col, Flex, Form, Input, Row, Typography } from "antd";
+import { Button, Card, Flex, Form, Input, Row, Typography } from "antd";
 import type { FormProps } from "antd";
 import { TLogin } from "../utils/types/Auth";
 import { Link } from "react-router-dom";
+import { routesConstant } from "../utils/constants";
 
 const LoginPage = () => {
   const { login } = useAuth();
@@ -65,7 +66,7 @@ const LoginPage = () => {
       </Form>
       <Typography>
         {"You don't have an account yet? "}
-        <Link to={"/public/sign-up"}>{"Sign up here."}</Link>
+        <Link to={routesConstant.signUp}>{"Sign up here."}</Link>
       </Typography>
     </Card>
   );

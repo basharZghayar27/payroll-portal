@@ -19,7 +19,7 @@ export class Employee {
           id: this.nextId++,
           ...employeeData,
         };
-        this.employees.push(newEmployee);
+        this.employees = [...this.employees, newEmployee];
         resolve(newEmployee);
       }, 500);
     });
@@ -33,10 +33,10 @@ export class Employee {
       setTimeout(() => {
         const employeeIndex = this.employees.findIndex((emp) => emp.id === id);
         if (employeeIndex !== -1) {
-          this.employees[employeeIndex] = {
-            ...this.employees[employeeIndex],
-            ...updatedData,
-          };
+          const updatedEmployees = this.employees.map((emp, index) =>
+            index === employeeIndex ? { ...emp, ...updatedData } : emp
+          );
+          this.employees = updatedEmployees;
           resolve(this.employees[employeeIndex]);
         } else {
           resolve(undefined);
@@ -50,7 +50,7 @@ export class Employee {
       setTimeout(() => {
         const employeeIndex = this.employees.findIndex((emp) => emp.id === id);
         if (employeeIndex !== -1) {
-          this.employees.splice(employeeIndex, 1);
+          this.employees = this.employees.filter((emp) => emp.id !== id);
           resolve(true);
         } else {
           resolve(false);
