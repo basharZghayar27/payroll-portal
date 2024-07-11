@@ -26,3 +26,11 @@ npm start
 # or
 yarn start
 ```
+You will be redirected to the login page:
+
+You can use:
+```bash
+username: admin
+password: 123qwe
+```
+For login or create a new user to login to the system.
