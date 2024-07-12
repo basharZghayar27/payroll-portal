@@ -12,6 +12,7 @@ import store from "../../store";
 import Dashboard from "../../view/Dashboard";
 import Employees from "../../view/employees/Employees";
 import SalariesPage from "../../view/salaries/Salaries";
+import PaymentHistory from "../../view/paymentHistory/PaymentHistory";
 
 const AppRoutes: React.FC = () => {
 	return (
@@ -35,6 +36,7 @@ const AppRoutes: React.FC = () => {
 						<Route path={routesConstant.dashboard} element={<Dashboard />} />
 						<Route path={routesConstant.employees} element={<Employees />} />
 						<Route path={routesConstant.salaries} element={<SalariesPage />} />
+						<Route path={routesConstant.paymentHistory} element={<PaymentHistory />} />
 					</Route>
 				</Routes>
 			</AuthProvider>

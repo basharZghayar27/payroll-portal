@@ -7,3 +7,5 @@ export interface ISalaryData extends IEmployee {
   isEndOfService: boolean;
   total: number;
 }
+
+

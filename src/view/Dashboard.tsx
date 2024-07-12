@@ -1,7 +1,7 @@
 import { Card, Col, Flex, Row, Spin, Typography } from "antd";
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { routesConstant } from "../utils/constants";
+import { paymentHistory, routesConstant } from "../utils/constants";
 import { useSelector } from "react-redux";
 import { fetchEmployees } from "../store/employees-store/employeesAction";
 import { RootState } from "../store/store";
@@ -31,7 +31,14 @@ const Dashboard: React.FC = () => {
 							</Flex>
 						</Card>
 					</Col>
-					<Col md={12}></Col>
+					<Col md={12}>
+						<Card hoverable onClick={() => navigate(routesConstant.paymentHistory, { replace: true })}>
+							<Flex gap='middle' align='center' vertical>
+								<Typography.Title level={1}>{"Payment History"}</Typography.Title>
+								<Typography.Title level={3}>{paymentHistory.length}</Typography.Title>
+							</Flex>
+						</Card>
+					</Col>
 				</Row>
 			</Spin>
 		</>

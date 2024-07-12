@@ -5,4 +5,5 @@ export const routesConstant = {
   dashboard: "/dashboard",
   employees: "/employees",
   salaries: "/salaries",
+  paymentHistory: "/paymentHistory",
 };
