@@ -11,6 +11,7 @@ import { Provider } from "react-redux";
 import store from "../../store";
 import Dashboard from "../../view/Dashboard";
 import Employees from "../../view/employees/Employees";
+import SalariesPage from "../../view/salaries/Salaries";
 
 const AppRoutes: React.FC = () => {
 	return (
@@ -33,7 +34,7 @@ const AppRoutes: React.FC = () => {
 					>
 						<Route path={routesConstant.dashboard} element={<Dashboard />} />
 						<Route path={routesConstant.employees} element={<Employees />} />
-						<Route path={routesConstant.salaries} element={<div>salaries</div>} />
+						<Route path={routesConstant.salaries} element={<SalariesPage />} />
 					</Route>
 				</Routes>
 			</AuthProvider>
